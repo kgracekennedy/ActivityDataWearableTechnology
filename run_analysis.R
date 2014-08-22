@@ -49,14 +49,16 @@ data2[,3:81]=train
 library(plyr)
 data=arrange(merge(data1,data2,all=T),id)
 #dim(data)#=81
-#data[1:3,1:2]
+#data[1:3,1:2]#Still need to replace activity labels
 
 #Activity Labels key
 actlab=read.table("UCIHAR_Dataset/activity_labels.txt")
-al=actlab[,2]
+al=as.character(actlab[,2])
 
 for (i in 1:6) {
-    data$Activity_Labels[data$Activiy_Labels==i]=al[i]
+    data$Activity_Labels[data$Activity_Labels==i]=al[i]
 }
+
+#data[1:3,1:2]
 
 write.table(data,file="CleanActivity.txt",row.name=F)
