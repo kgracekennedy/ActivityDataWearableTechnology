@@ -1,7 +1,7 @@
 #Activity Data Taken from Wearable Technology
 ==============================
 
-This is a repo for cleaning and organizing motion data collected by the Samsung Galaxy S Smartphone to prepare it for analysis.
+This is a repo for cleaning and organizing motion data collected by the Samsung Galaxy S II Smartphone to prepare it for analysis.
 
 ##Included in the Repo
 * BackgroundInfo folder with extra files about the project and dataset.  
@@ -9,7 +9,7 @@ This is a repo for cleaning and organizing motion data collected by the Samsung 
   * Description of the data from UC Irvine
   * ProjectDescription describing of the assignment
 A zipped file with all of the raw data files provided by UC Irvine
-* UCIHAR_Dataset folder with all of the data files.
+* UCIHAR_Dataset folder with all of the data files.  This is more carefully described in the raw data section.
 * README.md file to outline the analysis done by me (Grace)
 * run_analysis.R that does the data cleaning
 * CleanActivity.txt, which is the clean, structured data that is produced by run_analysis.R
@@ -37,3 +37,15 @@ A peek at these first two sets gives you a feel for how the data was collected. 
 * x_train.txt holds the data collected using an accelerometer and gyroscope in the smartphone (Samsung Galaxy S II) worn on the waist. 
 
 The test folder contains the same kind of information about the rest of the volunteers.
+
+##run_Analysis.R
+There are a lot of comments directly in the code, so you may be able to follow directly from the R file.  
+
+###Column Names and Selecting Desired Data
+The first thing we do is read the features.txt file in, because these are goign to be the column names in our final data set.  Since we only want the measurements for mean and standard deviation, we extract the column numbers that have information about mean and standard deviation (noted std in the names of features) usign the grep command.
+
+Next the code reads in subject ids, the integer codes for the activities he or she is doing, and the data collected from the Samsung Galaxy S II Smartphone.  We do this for the test then train groups.  We subset the Samsung data by the columns involving mean and standard deviation (this is the line test=testdata[,extract]).  We subset immediately after reading to work only with the necessary data.  Along the way, there are some commands that are commented out because they were used to evaluate progress as the code was written by providing "reasonabilty checks."
+
+To create the final data file, the test and train data were combined into files data1 and data2 before merging.  Finally, the test and train data were merged and arranged by volunteer id.  The activity level codes came in as a factor, so they were converted into a character vector before replacing integer activity codes with word descriptions.  A short for loop replaces the activity level codes (integers) with a word description.
+
+In the last step, the data is saved in the local current directory as CleanActivity.txt.
