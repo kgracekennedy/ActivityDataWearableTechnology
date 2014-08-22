@@ -6,16 +6,10 @@ This is a codebook for the data in CleanActivity.txt.  Much of this is a repeat 
 ##Variables in final output CleanActivity.txt
 * Activity : This notes the type of activity the participant that produced the data.
 
-->Much of this comes directly from the UC Irvine frequency_info.txt file in the UCIHAR_Dataset folder<-
+The data collected for the original UC Irvine database came from the accelerometer and gyroscope embedded in a Samsung Galaxy S II smartphone worn on the waist.  Jerk signals and the magnatude of the various signals were also recorded in the original dataset.  Much of the data was measured in 3-axial signals, and the axes were denoted by XYZ, representing the X, Y and Z directions.  You can read more about the collection of the raw data in the frequency_info.txt file in the UCIHAR_Dataset folder.
 
-*The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
-Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
-
-Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
-
-These signals were used to estimate variables of the feature vector for each pattern:  
-'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.*
+The UCIHAR_Dataset folder contains the original data readings and original calculations.  The following signals were measured for the original dataset:
 
 tBodyAcc-XYZ
 tGravityAcc-XYZ
@@ -35,33 +29,20 @@ fBodyAccJerkMag
 fBodyGyroMag
 fBodyGyroJerkMag
 
-The set of variables that were estimated from these signals are: 
+
+These signals allowed UC Irvine to estimate the following set of variables: 
 
 mean(): Mean value
 std(): Standard deviation
-mad(): Median absolute deviation 
-max(): Largest value in array
-min(): Smallest value in array
-sma(): Signal magnitude area
-energy(): Energy measure. Sum of the squares divided by the number of values. 
-iqr(): Interquartile range 
-entropy(): Signal entropy
-arCoeff(): Autorregresion coefficients with Burg order equal to 4
-correlation(): correlation coefficient between two signals
-maxInds(): index of the frequency component with largest magnitude
 meanFreq(): Weighted average of the frequency components to obtain a mean frequency
-skewness(): skewness of the frequency domain signal 
-kurtosis(): kurtosis of the frequency domain signal 
-bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
-angle(): Angle between to vectors.
-
-Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
 
 gravityMean
 tBodyAccMean
 tBodyAccJerkMean
 tBodyGyroMean
 tBodyGyroJerkMean
+
+The resulting estimates are the quantities used to create the variabes in CleanActivity.txt.  In the process of cleaning the UC Ivine data, the average and standard deviation of each variable were calculated.  A complete list of the variables whos mean and standard deviation were calculated are below.
 
 
 ##Data: Raw Data from UC Irvine
@@ -99,6 +80,88 @@ The first thing we do is read the features.txt file in, because these are goign 
 Next the code reads in subject ids, the integer codes for the activities he or she is doing, and the data collected from the Samsung Galaxy S II Smartphone.  We do this for the test then train groups.  We subset the Samsung data by the columns involving mean and standard deviation (this is the line test=testdata[,extract]).  We subset immediately after reading to work only with the necessary data.  Along the way, there are some commands that are commented out because they were used to evaluate progress as the code was written by providing "reasonabilty checks."
 
 ####Merging Data and Output
-To create the final data file, the test and train data were combined into files data1 and data2 before merging.  Finally, the test and train data were merged and arranged by volunteer id.  The activity level codes came in as a factor, so they were converted into a character vector before replacing integer activity codes with word descriptions.  A short for loop replaces the activity level codes (integers) with a word description.
+To create the final data file, the test and train data were combined into files data1 and data2 before merging.  Finally, the test and train data were merged and arranged by volunteer id.  At this point I calculated aggregate data by activity.  The activity level codes came in as a factor, so they were converted into a character vector before replacing integer activity codes with word descriptions.  A short for loop replaces the activity level codes (integers) with a word description.
 
 In the last step, the data is saved in the local current directory as CleanActivity.txt.
+
+##Complete List of Variable Names
+
+"tBodyAcc-mean()-X" 
+"tBodyAcc-mean()-Y" 
+"tBodyAcc-mean()-Z" 
+"tBodyAcc-std()-X" 
+"tBodyAcc-std()-Y" 
+"tBodyAcc-std()-Z" 
+"tGravityAcc-mean()-X" 
+"tGravityAcc-mean()-Y" 
+"tGravityAcc-mean()-Z" 
+"tGravityAcc-std()-X" 
+"tGravityAcc-std()-Y" 
+"tGravityAcc-std()-Z" 
+"tBodyAccJerk-mean()-X" 
+"tBodyAccJerk-mean()-Y" 
+"tBodyAccJerk-mean()-Z" 
+"tBodyAccJerk-std()-X" 
+"tBodyAccJerk-std()-Y" 
+"tBodyAccJerk-std()-Z" 
+"tBodyGyro-mean()-X" 
+"tBodyGyro-mean()-Y" 
+"tBodyGyro-mean()-Z" 
+"tBodyGyro-std()-X" 
+"tBodyGyro-std()-Y" 
+"tBodyGyro-std()-Z" 
+"tBodyGyroJerk-mean()-X" 
+"tBodyGyroJerk-mean()-Y" 
+"tBodyGyroJerk-mean()-Z" 
+"tBodyGyroJerk-std()-X" 
+"tBodyGyroJerk-std()-Y" 
+"tBodyGyroJerk-std()-Z" 
+"tBodyAccMag-mean()" 
+"tBodyAccMag-std()" 
+"tGravityAccMag-mean()" 
+"tGravityAccMag-std()" 
+"tBodyAccJerkMag-mean()" 
+"tBodyAccJerkMag-std()" 
+"tBodyGyroMag-mean()" 
+"tBodyGyroMag-std()" 
+"tBodyGyroJerkMag-mean()" 
+"tBodyGyroJerkMag-std()" 
+"fBodyAcc-mean()-X" 
+"fBodyAcc-mean()-Y" 
+"fBodyAcc-mean()-Z" 
+"fBodyAcc-std()-X" 
+"fBodyAcc-std()-Y" 
+"fBodyAcc-std()-Z" 
+"fBodyAcc-meanFreq()-X" 
+"fBodyAcc-meanFreq()-Y" 
+"fBodyAcc-meanFreq()-Z" 
+"fBodyAccJerk-mean()-X" 
+"fBodyAccJerk-mean()-Y" 
+"fBodyAccJerk-mean()-Z" 
+"fBodyAccJerk-std()-X" 
+"fBodyAccJerk-std()-Y" 
+"fBodyAccJerk-std()-Z" 
+"fBodyAccJerk-meanFreq()-X" 
+"fBodyAccJerk-meanFreq()-Y" 
+"fBodyAccJerk-meanFreq()-Z" 
+"fBodyGyro-mean()-X" 
+"fBodyGyro-mean()-Y" 
+"fBodyGyro-mean()-Z" 
+"fBodyGyro-std()-X" 
+"fBodyGyro-std()-Y" 
+"fBodyGyro-std()-Z" 
+"fBodyGyro-meanFreq()-X" 
+"fBodyGyro-meanFreq()-Y" 
+"fBodyGyro-meanFreq()-Z" 
+"fBodyAccMag-mean()" 
+"fBodyAccMag-std()" 
+"fBodyAccMag-meanFreq()" 
+"fBodyBodyAccJerkMag-mean()" 
+"fBodyBodyAccJerkMag-std()" 
+"fBodyBodyAccJerkMag-meanFreq()" 
+"fBodyBodyGyroMag-mean()" 
+"fBodyBodyGyroMag-std()" 
+"fBodyBodyGyroMag-meanFreq()" 
+"fBodyBodyGyroJerkMag-mean()" 
+"fBodyBodyGyroJerkMag-std()" 
+"fBodyBodyGyroJerkMag-meanFreq()"
