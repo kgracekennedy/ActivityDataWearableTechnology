@@ -9,7 +9,7 @@ This is a codebook for the data in CleanActivity.txt.  Much of this is a repeat 
 The data collected for the original UC Irvine database came from the accelerometer and gyroscope embedded in a Samsung Galaxy S II smartphone worn on the waist.  Jerk signals and the magnatude of the various signals were also recorded in the original dataset.  Much of the data was measured in 3-axial signals, and the axes were denoted by XYZ, representing the X, Y and Z directions.  You can read more about the collection of the raw data in the frequency_info.txt file in the UCIHAR_Dataset folder.
 
 
-The UCIHAR_Dataset folder contains the original data readings and original calculations.  The following signals were measured for the original dataset:
+The UCIHAR_Dataset folder contains the original data readings and original calculations.  The following signals were measured for the original dataset (cut and pasted from features_info.txt):
 
 tBodyAcc-XYZ
 tGravityAcc-XYZ
@@ -30,7 +30,7 @@ fBodyGyroMag
 fBodyGyroJerkMag
 
 
-These signals allowed UC Irvine to estimate the following set of variables: 
+These signals allowed UC Irvine to estimate the following set of variables (cut and pasted from features_info.txt): 
 
 mean(): Mean value
 std(): Standard deviation
