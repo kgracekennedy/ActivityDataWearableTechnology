@@ -51,14 +51,28 @@ data=arrange(merge(data1,data2,all=T),id)
 #dim(data)#=81
 #data[1:3,1:2]#Still need to replace activity labels
 
+aggregatedata=aggregate(data,by=list(Activity=data$Activity_Labels),mean)
+#dim(aggregatedata)#=6x82
+#aggregatedata[1:3,1:3]
+Activity=aggregatedata[,1]
+finaldata=as.data.frame(Activity)
+#head(finaldata)
+#dim(finaldata)#=6x1
+finaldata[,2:80]=aggregatedata[,4:82]
+#dim(finaldata)
+
 #Activity Labels key
 actlab=read.table("UCIHAR_Dataset/activity_labels.txt")
 al=as.character(actlab[,2])
 
+
 for (i in 1:6) {
-    data$Activity_Labels[data$Activity_Labels==i]=al[i]
+    finaldata$Activity[finaldata$Activity==i]=al[i]
 }
 
-#data[1:3,1:2]
+#finaldata[1:3,1:2]
+#finaldata$Activity
+#finaldata$id#shouldn't and isnt here
+#dim(finaldata)
 
-write.table(data,file="CleanActivity.txt",row.name=F)
+write.table(finaldata,file="CleanActivity.txt",row.name=F)
