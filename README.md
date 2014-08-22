@@ -3,6 +3,19 @@
 
 This is a repo for cleaning and organizing motion data collected by the Samsung Galaxy S Smartphone to prepare it for analysis.
 
+##Included in the Repo
+* BackgroundInfo folder with extra files about the project and dataset.  
+  * An article about the interest of data collected from wearable sensors.
+  * Description of the data from UC Irvine
+  * ProjectDescription describing of the assignment
+A zipped file with all of the raw data files provided by UC Irvine
+* UCIHAR_Dataset folder with all of the data files.
+* README.md file to outline the analysis done by me (Grace)
+* run_analysis.R that does the data cleaning
+* CleanActivity.txt, which is the clean, structured data that is produced by run_analysis.R
+* A codebook, which has yet to be written!
+
+
 ##The Raw Data
 The raw data can be found in the UCIHAR_Dataset folder.  More description about the data and the assignment are in the BackgroundInfo folder.
 
