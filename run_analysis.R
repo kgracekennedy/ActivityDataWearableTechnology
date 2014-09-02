@@ -52,7 +52,6 @@ data=arrange(merge(data1,data2,all=T),id)
 #data[1:3,1:2]#Still need to replace activity labels
 
 
-?aggregate
 aggregatedata=aggregate(data,by=list(Activity=data$Activity_Labels,ID=data$id),mean)
 #dim(aggregatedata)#=180x83
 #aggregatedata[30:38,1:5]#Stuff we want to attach starts in column 5
