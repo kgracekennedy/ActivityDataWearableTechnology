@@ -15,15 +15,7 @@ A zipped file with all of the raw data files provided by UC Irvine
 * CleanActivity.txt, which is the clean, structured data that is produced by run_analysis.R
 * A codebook, describing the variables and process
 
-##Reqested Feedback from Peer Review
-Thank you for taking the time to review my code.  At the end of the peer assessment, there is a place for overall feedback.  If you don't mind, I would appreciate your general thoughts on how the code and explication can be optimized or otherwise improved:
-* advice on making the README.md file more readable and/or clearer
-* is there a slicker way to merge the data? (this step seemed to be the clunkiest to me)
-* are any of the steps superfluous?
-
-Also, please comment specifically on
-* reasons for missed points
-* typos in spelling and grammar that you notice
+Thank you to my peers who reviewed the code.  I made adjustments based on your suggestions.
 
 ##The Raw Data
 The raw data can be found in the UCIHAR_Dataset folder.  More description about the data and the assignment are in the BackgroundInfo folder.
@@ -34,7 +26,7 @@ In the first level, there are four files and two folders.
 * features_info.txt is an overview of the types of data that are recorded about the movement.  
 * features.txt clearly names all of the data collected.
 
-Data was taken from 30 volunteers.  Volunteers were randomly assigned to be in "test" and "training"  groups.
+Data was taken from 30 volunteers.  In the original experiment, volunteers were randomly assigned to be in "test" and "training"  groups.
 
 ###Train and Test Folders
 The train folder holds data for 70% of the participants.  
